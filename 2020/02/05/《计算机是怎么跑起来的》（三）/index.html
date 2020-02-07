@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://clearwas.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+
+  <meta name="description" content="问答1 什么是机器语言    也称Native Code由二进制数字构成的程序，CPU可以直接对其解析、执行。 2 通常把标识内存或I&#x2F;O中存储单元的数字称作什么？     标识内存或I&#x2F;O中存储单元的数字叫做”地址”。内存中有多个数据存储单元。计算机用从0开始的编号标识每个存储单元，这些编号就是地址（Address）。     I&#x2F;O中的寄存器也可以用地址来标识。哪个寄存器对应哪个地址，取决于C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机是怎么跑起来的》（三）">
+<meta property="og:url" content="https://clearwas.github.io/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
+<meta property="og:site_name" content="风朗气清">
+<meta property="og:description" content="问答1 什么是机器语言    也称Native Code由二进制数字构成的程序，CPU可以直接对其解析、执行。 2 通常把标识内存或I&#x2F;O中存储单元的数字称作什么？     标识内存或I&#x2F;O中存储单元的数字叫做”地址”。内存中有多个数据存储单元。计算机用从0开始的编号标识每个存储单元，这些编号就是地址（Address）。     I&#x2F;O中的寄存器也可以用地址来标识。哪个寄存器对应哪个地址，取决于C">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/02/417f7ab13b541327.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/02/a40c4fb22eaaa3fd.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/02/dff4f2c7df2ab1e9.png">
+<meta property="article:published_time" content="2020-02-05T09:24:33.000Z">
+<meta property="article:modified_time" content="2020-02-06T09:03:15.398Z">
+<meta property="article:author" content="clearwas">
+<meta property="article:tag" content="汇编 扫盲">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ftp.bmp.ovh/imgs/2020/02/417f7ab13b541327.png">
+
+<link rel="canonical" href="https://clearwas.github.io/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>《计算机是怎么跑起来的》（三） | 风朗气清</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+ </head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">风朗气清</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://clearwas.github.io/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="clearwas">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风朗气清">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《计算机是怎么跑起来的》（三）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-05 17:24:33" itemprop="dateCreated datePublished" datetime="2020-02-05T17:24:33+08:00">2020-02-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-06 17:03:15" itemprop="dateModified" datetime="2020-02-06T17:03:15+08:00">2020-02-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><p>1 什么是机器语言<br>    也称Native Code由二进制数字构成的程序，CPU可以直接对其解析、执行。</p>
+<p>2 通常把标识内存或I/O中存储单元的数字称作什么？<br>     标识内存或I/O中存储单元的数字叫做”地址”。内存中有多个数据存储单元。计算机用从0开始的编号标识每个存储单元，这些编号就是地址（Address）。<br>     I/O中的寄存器也可以用地址来标识。哪个寄存器对应哪个地址，取决于CPU和I/O之间的布线方式。</p>
+<p>3 CPU 中的标志寄存器（Flags Register）有什么作用？<br>     用于在运算指令执行后，存储运算结果的某些状态。一旦执行了算术运算、逻辑运算、比较运算等指令后，标志寄存器并不会存放运算结果的值，而是会把运算后的某些状态存储起来，例如运算结果是否为0、是否产生了负数、是否有溢出（Overflow）等。</p>
+<h2 id="从程序员角度看硬件"><a href="#从程序员角度看硬件" class="headerlink" title="从程序员角度看硬件"></a>从程序员角度看硬件</h2><p>  [CPU信息]</p>
+<ul>
+<li>CPU种类</li>
+<li>时钟信号的频率<br> [内存信息]<ul>
+<li>地址空间</li>
+<li>每个地址中可以存储多少比特的信息<br>[I/O信息]</li>
+<li>I/O的种类</li>
+<li>地址空间</li>
+<li>连接着何种周边设备</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ftp.bmp.ovh/imgs/2020/02/417f7ab13b541327.png" alt=""></p>
+<ol>
+<li>用哪种机器语言取决于CPU（也称作处理器）的种类,即便是相同的机器语言，如“01010011“，只要CPU的种类不同，对它的解释也就不同”</li>
+<li>时钟信号的频率：就是由时钟发生器发送给CPU的电信号的频率。时钟信号是在0和1两个数之 间反复变换的电信号，就像滴答滴答左右摆动的钟摆一样。通常把发出一次滴答的时间称作一个时钟周期。在机器语言当中，指令执行时所需要的时钟周期数取决于指令的类型</li>
+<li>I/O的地址空间，指I/O寄存器的地址范围在。Z80 PIO上，地址空间为0～3，每一个地址对应一个寄存器.</li>
+<li>在内存中，每个地址的功能都一样，既可用于存储指令又可用于存储数据。而I/O不同,I/O的地址编号不同（寄存器的类型不同），功能也不同。<br>在汇编语言中，使用十进制和十六进制数记录数据。<br>在汇编语言中，读写内存的指令不同于读写I/O的指令。</li>
+</ol>
+<h2 id="机器语言和汇编语言"><a href="#机器语言和汇编语言" class="headerlink" title="机器语言和汇编语言"></a>机器语言和汇编语言</h2><h3 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言:"></a>汇编语言:</h3><pre><code>在机器语言程序中，虽然到处都是0和1的组合，但是每个组合都是有特定含义的指令或数据，人很难判断各个组合都表示什么。有人发明出一种编程方法，根据表示指令功能的英语单词起一个相似的昵称，并将这个昵称赋予0和1的组合，这种类似英语单词的昵称叫做**“助记符”**，使用助记符的编程语言叫作“汇编语言”。</code></pre><h3 id="汇编语言的语法："><a href="#汇编语言的语法：" class="headerlink" title="汇编语言的语法："></a>汇编语言的语法：</h3><p>汇编语言的语法十分简单，以至于语法只有一个，即把“标签” “操作码（指令）”和“操作数（指令的对象）”并排写在一行上。</p>
+<ol>
+<li>标签的作用是为该行代码对应的内存地址起一个名字。</li>
+<li>操作码就是“做什么”的指令。<ul>
+<li>汇编语言中提供了多少种助记符，CPU就有多少种功能。Z80 CPU 的指令全部加起来有 70 条左右。</li>
+<li>按功能这些指令可以分成运算、与内存的输入输出和与 I/O 的输入输出三类</li>
+</ul>
+</li>
+<li>操作数表示的是指令执行的对象，CPU的寄存器、内存地址、I/O地址或者直接给出的数字都可以作为操作数。操作数必须是已存储在CPU寄存器中的数字。</li>
+<li>构成机器语言的是二进制数，而在汇编语言中，则使用十进制数和十六进制数记录数据。 </li>
+</ol>
+<h2 id="Z80的寄存器结构"><a href="#Z80的寄存器结构" class="headerlink" title="Z80的寄存器结构"></a>Z80的寄存器结构</h2><p>​        CPU的寄存器不仅能存储数据，还具备对数据进行运算的能力。CPU带有什么样的寄存器取决于CPU的种类。寄存器的用途取决于它的类型。</p>
+<p>有的指令只能将特定的寄存器指定为操作数。</p>
+<p><img src="https://ftp.bmp.ovh/imgs/2020/02/a40c4fb22eaaa3fd.png" alt=""></p>
+<ul>
+<li>A寄存器也叫作“累加器”，是运算的核心。所以连接到它上面的导线也一定会比其他寄存器的多。</li>
+<li>F寄存器也叫作“标志寄存器”，用于存储运算结果的状态，比如是否发生了进位，数字大小的比较结果等。</li>
+<li>PC寄存器也叫作“程序指针”，存储着指向CPU接下来要执行的指令的地址。PC寄存器的值会随着滴答滴答的时钟信号自动更新，可以说程序就是依靠不断变化的PC寄存器的值运行起来的。</li>
+<li>SP寄存器也叫作“栈顶指针”，用于在内存中创建出一块称为“栈”的临<br>时数据存储区域。</li>
+</ul>
+<blockquote>
+<p>代码1</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LOOP: IN  A, (0)</span><br><span class="line">　　　 OUT (1), A</span><br><span class="line">　　　 JP  LOOP</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>IN A, (0)”的作用是把数据由端口A数据寄存器（连接在指拨开关上，对应的 I/O 地址为 0 号）输入到 CPU 的寄存器 A</li>
+<li>“OUT (1), A”的作用是把寄存器A的值输出到端口B数据寄存器上（连接在LED上，对应的I/O地址为1号）</li>
+<li>“JP LOOP”的作用是使程序的流程跳转到LOOP（笔者随意起的一个标签名）标签所标识的指令上。</li>
+</ul>
+<hr>
+<p>注意：JP 是 Jump 的缩写。“IN A, (0)”所在行的开头有一个标签“LOOP:”，代表着这一行的内存地址。正如刚才所讲的那样，在用汇编语言编程时，如果老想着“这一行对应的内存地址是什么来着？”就会很不方便。<strong>所以就要用“LOOP:”这样的标签代替内存地址</strong>。<br>     当把标签作为JP指令的操作数时，标签名的结尾不需要冒号“:”，<br>     但是在设定标签时，标签名的结尾则需要加上一个冒号，<br>     这一点请诸位注意！！！！</p>
+<h2 id="追踪程序的运营过程"><a href="#追踪程序的运营过程" class="headerlink" title="追踪程序的运营过程"></a>追踪程序的运营过程</h2><p><strong><em>用汇编语言编写的程序是不能直接运行的，必须要先转换成机器语言</em></strong></p>
+<ul>
+<li>汇编语言中的1条指令能转换成多少条机器语言取决于指令的种类以及操作数的个数。</li>
+<li>一旦重置了 CPU，00000000 就会被自动存储到 PC 寄存器中，这意味着接下来 CPU 将要从 00000000 号地址读出程序。</li>
+</ul>
+<ol>
+<li>首先 CPU 会从00000000 号地址读出指令 00111110，判断出这是一条由 2 个字节构成的指令</li>
+<li>是接下来会从下一个地址（即00000001，1号地址）读出数据11001111，</li>
+<li>把这<strong>两个数据</strong>汇集到一起解释、执行</li>
+<li>执行的指令是把数值207写入到寄存器A，用汇编语言表示的话就是“LD A, 207”</li>
+<li>这时，由于刚刚从内存读出了一条2字节的指令（占用2个内存地址），所以PC寄存器的值要增加2</li>
+</ol>
+<hr>
+<p>通过反复进行“读取指令”“解释、执行指令”“更新PC寄存器的值”这3个操作，程序就能运行起来了。</p>
+<h2 id="手工汇编"><a href="#手工汇编" class="headerlink" title="手工汇编"></a>手工汇编</h2><p><em>在CPU的资料中，明确写有所有可以使用的助记符，以及助记符转换成机器语言后的数值。只要查看这些资料，就可以把用汇编语言编写的程序手工转换成机器语言的程序，这样的工作称为“手工汇编”。</em></p>
+<p><img src="https://ftp.bmp.ovh/imgs/2020/02/dff4f2c7df2ab1e9.png" alt=""></p>
+<ol>
+<li>在机器语言当中，指令执行时所需要的时钟周期数取决于指令的类型</li>
+<li>在 Z80 CPU中用于设定内存地址的引脚却有16个，所以在机器语言中也要用 16 比特的二进制数设定内存地址。</li>
+<li>机器语言中每条语句的字节数是多少，内存地址就相应地增加多少</li>
+</ol>
+<p>小端序：在将一个2字节的数据存储到内存时，存储顺序是低8位在前、高8位在后（也就是逆序存储）<br>大端序：将数据由高位到低位 顺序地存储到内存的存储顺序<br>** CPU种类的不同，有的CPU使用大端序，有的CPU使用小端序</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B1%87%E7%BC%96-%E6%89%AB%E7%9B%B2/" rel="tag"># 汇编 扫盲</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/05/%E6%AF%8F%E6%97%A5%E6%96%B0%E8%AF%8D/" rel="prev" title="每日新词">
+      <i class="fa fa-chevron-left"></i> 每日新词
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问答"><span class="nav-number">1.</span> <span class="nav-text">问答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从程序员角度看硬件"><span class="nav-number">2.</span> <span class="nav-text">从程序员角度看硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器语言和汇编语言"><span class="nav-number">3.</span> <span class="nav-text">机器语言和汇编语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#汇编语言"><span class="nav-number">3.1.</span> <span class="nav-text">汇编语言:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#汇编语言的语法："><span class="nav-number">3.2.</span> <span class="nav-text">汇编语言的语法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Z80的寄存器结构"><span class="nav-number">4.</span> <span class="nav-text">Z80的寄存器结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追踪程序的运营过程"><span class="nav-number">5.</span> <span class="nav-text">追踪程序的运营过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手工汇编"><span class="nav-number">6.</span> <span class="nav-text">手工汇编</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">clearwas</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">clearwas</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.1
+  </div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共2.6k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='34,34,34' opacity='0.6' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>
