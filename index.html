@@ -21,7 +21,7 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('https://clearwas.github.io').hostname,
+    hostname: new URL('https://forleaves.xyz').hostname,
     root: '/',
     scheme: 'Pisces',
     version: '7.7.1',
@@ -51,13 +51,13 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="风朗气清">
-<meta property="og:url" content="https://clearwas.github.io/index.html">
+<meta property="og:url" content="https://forleaves.xyz/index.html">
 <meta property="og:site_name" content="风朗气清">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="clearwas">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://clearwas.github.io/">
+<link rel="canonical" href="https://forleaves.xyz/">
 
 
 <script id="page-configurations">
@@ -184,7 +184,138 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://clearwas.github.io/2020/02/07/Raction-02-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%A1%86-%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5/">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/12/have/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="clearwas">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风朗气清">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/12/have/" class="post-title-link" itemprop="url">have</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-12 23:39:48" itemprop="dateCreated datePublished" datetime="2020-02-12T23:39:48+08:00">2020-02-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/11/Git%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="clearwas">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风朗气清">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/11/Git%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">Git学习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-11 18:15:52 / 修改时间：18:17:33" itemprop="dateCreated datePublished" datetime="2020-02-11T18:15:52+08:00">2020-02-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="使用git之前的最小配置"><a href="#使用git之前的最小配置" class="headerlink" title="使用git之前的最小配置"></a>使用git之前的最小配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name ‘your_name’</span><br><span class="line">git config --global user.email &#39;your_email@domain.com&#39;</span><br></pre></td></tr></table></figure>
+<p>git config –local 只针对某个仓库有效<br>git config –global 对当前用户所有残酷有效<br>git config –system</p>
+<p>git config –local user.name</p>
+<p>git config –list [–global]<br>git add file_name<br><code>git add .</code>添加所在文件夹的所有文件到暂存区<br><code>git rm --cached &lt;file&gt;</code>从暂存区中删除<br> <code>git add -u</code>所有被git管理过的文件可以用-u 代替</p>
+<h2 id="文件重命名"><a href="#文件重命名" class="headerlink" title="文件重命名"></a>文件重命名</h2><p>git reset HARD<br><code>git mv readme readme.md</code>    </p>
+<h2 id="查看版本演变"><a href="#查看版本演变" class="headerlink" title="查看版本演变"></a>查看版本演变</h2><p><code>git log --oneline</code><br><code>git log -n5 --oneline</code><br><code>git commit -am &quot;&quot;</code>直接将工作区的文件推送到版本库中<br>git log 查看当前分支的历史<br>git log –oneline [temp]<br>git log –oneline –all temp</p>
+<p>git help –web [命令]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ git help -g</span><br><span class="line"></span><br><span class="line">The common Git guides are:</span><br><span class="line">   attributes          Defining attributes per path</span><br><span class="line">   cli                 Git command-line interface and conventions</span><br><span class="line">   core-tutorial       A Git core tutorial for developers</span><br><span class="line">   cvs-migration       Git for CVS users</span><br><span class="line">   diffcore            Tweaking diff output</span><br><span class="line">   everyday            A useful minimum set of commands for Everyday Git</span><br><span class="line">   glossary            A Git Glossary</span><br><span class="line">   hooks               Hooks used by Git</span><br><span class="line">   ignore              Specifies intentionally untracked files to ignore</span><br><span class="line">   modules             Defining submodule properties</span><br><span class="line">   namespaces          Git namespaces</span><br><span class="line">   repository-layout   Git Repository Layout</span><br><span class="line">   revisions           Specifying revisions and ranges for Git</span><br><span class="line">   tutorial            A tutorial introduction to Git</span><br><span class="line">   tutorial-2          A tutorial introduction to Git: part two</span><br><span class="line">   workflows           An overview of recommended workflows with Git</span><br></pre></td></tr></table></figure>
+<h2 id="图形界面工具来查看版本"><a href="#图形界面工具来查看版本" class="headerlink" title="图形界面工具来查看版本"></a>图形界面工具来查看版本</h2><p><code>gitk</code><br>提交者和作者不是同一人得情况有从某一次提交中，成立一个新的分支</p>
+<h2 id="探究-git目录"><a href="#探究-git目录" class="headerlink" title="探究.git目录"></a>探究.git目录</h2><p>HEAD<br>    $ cat HEAD<br>    ref: refs/heads/temp<br>当前正在工作的分支是temp</p>
+<p><code>git cat-file -t RSAID</code>查看文件类型<br><code>git cat-file -p</code><br>pack 打包松散文件<br>哈希值足以标识唯一即可</p>
+<h2 id="git的存储关系"><a href="#git的存储关系" class="headerlink" title="git的存储关系"></a>git的存储关系</h2><p>commit 对应一颗树，存储当前状态的快照，所有文件及文件夹的快照<br>tree 文件夹<br>blob具体文件，根据文件内容来判断不是根据文件名</p>
+<h2 id="分离头指针情况下的注意事项"><a href="#分离头指针情况下的注意事项" class="headerlink" title="分离头指针情况下的注意事项"></a>分离头指针情况下的注意事项</h2><p>HEAD没有指向任何分支<br><code>git checkout existed_march</code><br><code>git branch fix_css 3d4782d</code></p>
+<h2 id="正确理解HEAD和branch"><a href="#正确理解HEAD和branch" class="headerlink" title="正确理解HEAD和branch"></a>正确理解HEAD和branch</h2><p>HEAD指向分支或在分离头指针情况下指向某一次提交（其实HEAD就是指向某一项提交<br>HEAD可以指代当前分支，HEAD^当前分支的父亲，HEAD ^ HEAD^1^1 HEAD<del>1,HEAD</del>2<br>git diffe ID ID</p>
+<h2 id="删除不需要的分支"><a href="#删除不需要的分支" class="headerlink" title="删除不需要的分支"></a>删除不需要的分支</h2><p>gitk –all<br>git branch -d [分支名]<br>git branch -D[分支名]</p>
+<h2 id="修改commit的message"><a href="#修改commit的message" class="headerlink" title="修改commit的message"></a>修改commit的message</h2><p><code>git commit -amend</code>对最近的一次提交的message进行变更</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/07/Raction-02-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%A1%86-%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -256,7 +387,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://clearwas.github.io/2020/02/07/Raction-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%A1%86/">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/07/Raction-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%A1%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -313,7 +444,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://clearwas.github.io/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -464,7 +595,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://clearwas.github.io/2020/02/05/%E6%AF%8F%E6%97%A5%E6%96%B0%E8%AF%8D/">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/05/%E6%AF%8F%E6%97%A5%E6%96%B0%E8%AF%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -521,7 +652,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://clearwas.github.io/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -591,7 +722,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://clearwas.github.io/2020/02/04/Rkeyboard/">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/04/Rkeyboard/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -727,7 +858,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -778,7 +909,7 @@
   </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.4k字</span>
+  <span class="post-count">博客全站共6k字</span>
 </div>
         
 
