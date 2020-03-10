@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>信息来源</title>
+    <url>/2020/03/10/%E4%BF%A1%E6%81%AF%E6%9D%A5%E6%BA%90/</url>
+    <content><![CDATA[<h2 id="信息源及其类型"><a href="#信息源及其类型" class="headerlink" title="信息源及其类型"></a>信息源及其类型</h2><p>个人为满足信息需要而获得信息的来源</p>
+<h2 id="信息分类："><a href="#信息分类：" class="headerlink" title="信息分类："></a>信息分类：</h2><ol>
+<li>记录型信息源<br>传统介质或现代介质记录和存储的知识信息<ul>
+<li>载体：印刷型，缩微型，计算机阅读型，网络型</li>
+<li>加工：一次信息，二次信息（题录索引），三次信息（智力成果）</li>
+</ul>
+</li>
+<li>实物信息源：生物的样品，产品样品（可用于反求工程）<ul>
+<li>直观生动，含有丰富的信息</li>
+<li>不能直接存储，需要转化为记录型信息</li>
+</ul>
+</li>
+<li>智力型信息源<br>人脑存储的知识信息，包括人们掌握的各类知识，诀窍，技能和经验<ul>
+<li>显性知识：可以用语言和文字明确表达和记录</li>
+<li>隐性知识：有的则难以明确表达和记录</li>
+</ul>
+</li>
+<li>零次信息源<br>人们通过直接交流获得的，信息客体的内容直接作用与人的感受（直接的，及时的，新颖的，随机的，非存储的）</li>
+</ol>
+<h2 id="信息源的评价"><a href="#信息源的评价" class="headerlink" title="信息源的评价"></a>信息源的评价</h2><p><strong>不同信息源，不同人员，不同使用场景，目标</strong></p>
+<ul>
+<li>及时地以适当的方式提供解决方案</li>
+<li>符合用户的需求</li>
+<li>信息的可信赖程度（信息生产者</li>
+<li>信息具有综合性（相对于片面而言</li>
+<li>信息容易获取（不是用特殊的手段或极少数人才能获取）</li>
+<li>信息的费用和目标吻合</li>
+</ul>
+<p><strong>相关研究论文结论：</strong><br>专指性，正确性，清晰性，及时性，真实性，权威性，可获得性，可验证性，情感效应</p>
+<blockquote>
+<p>Alexa网站排行-地区-类目<br>APP Annie-移动应用和数字内容时代数据分析和市场数据的行业领导者</p>
+</blockquote>
+<h2 id="信息获取的途径与工具"><a href="#信息获取的途径与工具" class="headerlink" title="信息获取的途径与工具"></a>信息获取的途径与工具</h2><ul>
+<li>采购</li>
+<li>调查</li>
+<li>交换</li>
+<li>索取</li>
+<li>检索<blockquote>
+<p>工具：搜索引擎，数字图书馆，RSS，社区网络，问答平台，APP，二维码…<br>主题：学术信息(图书期刊，学术沙龙，学科信息门户，数字图书馆），学习信息(文库类，百科类，iTunes)</p>
+<pre><code>商务信息，生活信息(点评类网站，本地化平台)</code></pre></blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>信息管理</category>
+      </categories>
+      <tags>
+        <tag>信息</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python运行程序</title>
+    <url>/2020/03/02/Python%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>混账</title>
+    <url>/2020/02/17/%E6%B7%B7%E8%B4%A6/</url>
+    <content><![CDATA[<blockquote>
+<p>R GUI</p>
+</blockquote>
+<ol>
+<li>R Commander</li>
+<li>Rattle</li>
+<li>Deducer and JGR</li>
+<li>GrapheR<br>5。RKWard</li>
+<li>Red-R</li>
+<li>其他，包括Sciviews-K</li>
+</ol>
+<p>install.packages(“RCmdr”);<br>library(RCmdr);</p>
+<p>install.packages(“rattle”)<br>library(rattle)<br>rattle()</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Git初学（一）</title>
     <url>/2020/02/13/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</url>
     <content><![CDATA[<h2 id="使用git之前的最小配置"><a href="#使用git之前的最小配置" class="headerlink" title="使用git之前的最小配置"></a>使用git之前的最小配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name ‘your_name’</span><br><span class="line">git config --global user.email &#39;your_email@domain.com&#39;</span><br></pre></td></tr></table></figure>
