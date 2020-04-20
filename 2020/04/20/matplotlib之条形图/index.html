@@ -49,17 +49,22 @@
 </script>
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="have">
-<meta property="og:url" content="https://forleaves.xyz/2020/02/12/have/index.html">
+  <meta name="description" content="12import matplotlib.pyplot as pltimport numpy as np   1234n &#x3D; 12 X &#x3D; np.arange(12)Y1 &#x3D; (1-X&#x2F;float(n)) * np.random.uniform(0.5,1.0,n)  # 均匀分布Y2 &#x3D; (1-X&#x2F;float(n)) * np.random.uniform(0.5,1.0,n)   1234567">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matplotlib之条形图">
+<meta property="og:url" content="https://forleaves.xyz/2020/04/20/matplotlib%E4%B9%8B%E6%9D%A1%E5%BD%A2%E5%9B%BE/index.html">
 <meta property="og:site_name" content="风朗气清">
+<meta property="og:description" content="12import matplotlib.pyplot as pltimport numpy as np   1234n &#x3D; 12 X &#x3D; np.arange(12)Y1 &#x3D; (1-X&#x2F;float(n)) * np.random.uniform(0.5,1.0,n)  # 均匀分布Y2 &#x3D; (1-X&#x2F;float(n)) * np.random.uniform(0.5,1.0,n)   1234567">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-12T15:39:48.000Z">
-<meta property="article:modified_time" content="2020-02-12T15:39:48.293Z">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/04/4b58e9f95ced1d9d.png">
+<meta property="article:published_time" content="2020-04-20T01:10:35.000Z">
+<meta property="article:modified_time" content="2020-04-20T01:18:50.950Z">
 <meta property="article:author" content="clearwas">
+<meta property="article:tag" content="条形图">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ftp.bmp.ovh/imgs/2020/04/4b58e9f95ced1d9d.png">
 
-<link rel="canonical" href="https://forleaves.xyz/2020/02/12/have/">
+<link rel="canonical" href="https://forleaves.xyz/2020/04/20/matplotlib%E4%B9%8B%E6%9D%A1%E5%BD%A2%E5%9B%BE/">
 
 
 <script id="page-configurations">
@@ -71,7 +76,7 @@
   };
 </script>
 
-  <title>have | 风朗气清</title>
+  <title>matplotlib之条形图 | 风朗气清</title>
   
 
 
@@ -186,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/12/have/">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/04/20/matplotlib%E4%B9%8B%E6%9D%A1%E5%BD%A2%E5%9B%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          have
+          matplotlib之条形图
         </h1>
 
         <div class="post-meta">
@@ -208,8 +213,20 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-02-12 23:39:48" itemprop="dateCreated datePublished" datetime="2020-02-12T23:39:48+08:00">2020-02-12</time>
+              <time title="创建时间：2020-04-20 09:10:35 / 修改时间：09:18:50" itemprop="dateCreated datePublished" datetime="2020-04-20T09:10:35+08:00">2020-04-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/matplotlib/" itemprop="url" rel="index">
+                    <span itemprop="name">matplotlib</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -223,7 +240,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">12</span> </span><br><span class="line">X = np.arange(<span class="number">12</span>)</span><br><span class="line">Y1 = (<span class="number">1</span>-X/float(n)) * np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n)  <span class="comment"># 均匀分布</span></span><br><span class="line">Y2 = (<span class="number">1</span>-X/float(n)) * np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.bar(X,+Y1,facecolor=<span class="string">'#9999ff'</span>)</span><br><span class="line">plt.bar(X,-Y2,facecolor=<span class="string">'#ff9999'</span>,edgecolor=<span class="string">'none'</span> )</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y1):</span><br><span class="line">    plt.text(x+<span class="number">0.04</span>,y+<span class="number">0.05</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y2):</span><br><span class="line">    plt.text(x+<span class="number">0.04</span>,-y<span class="number">-0.15</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</span><br><span class="line"><span class="comment"># plt.text(,,)第三个参数 指添加标签的数值来自哪里</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">12</span> </span><br><span class="line">X = np.arange(<span class="number">12</span>)</span><br><span class="line">Y1 = (<span class="number">1</span>-X/float(n)) * np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n)  <span class="comment"># 均匀分布</span></span><br><span class="line">Y2 = (<span class="number">1</span>-X/float(n)) * np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.bar(X,+Y1,facecolor=<span class="string">'#9999ff'</span>)</span><br><span class="line">plt.bar(X,-Y2,facecolor=<span class="string">'#ff9999'</span>,edgecolor=<span class="string">'none'</span> )</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y1):</span><br><span class="line">    plt.text(x+<span class="number">0.04</span>,y+<span class="number">0.05</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y2):</span><br><span class="line">    plt.text(x+<span class="number">0.04</span>,-y<span class="number">-0.15</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</span><br><span class="line"><span class="comment"># plt.text(,,)第三个参数 指添加标签的数值来自哪里</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://ftp.bmp.ovh/imgs/2020/04/4b58e9f95ced1d9d.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># zip? </span></span><br><span class="line"><span class="comment"># 返回一个zip对象，其.__ next __（）方法返回一个元组，</span></span><br><span class="line"><span class="comment"># 其中第i个元素来自第i个可迭代参数。</span></span><br><span class="line"><span class="comment"># .__ next __（）方法继续，直到参数序列中最短的可迭代耗尽为止，然后引发StopIteration。</span></span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -231,6 +270,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9D%A1%E5%BD%A2%E5%9B%BE/" rel="tag"># 条形图</a>
+          </div>
 
         
 
@@ -238,12 +280,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/11/Git%E5%AD%A6%E4%B9%A0/" rel="prev" title="Git学习">
-      <i class="fa fa-chevron-left"></i> Git学习
+    <a href="/2020/04/16/Anaconda%E4%BB%8B%E7%BB%8D/" rel="prev" title="Anaconda介绍">
+      <i class="fa fa-chevron-left"></i> Anaconda介绍
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/13/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="next" title="Git初学（一）">
-      Git初学（一） <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/20/%E9%98%85%E8%AF%BB%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/" rel="next" title="阅读帮助文档">
+      阅读帮助文档 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

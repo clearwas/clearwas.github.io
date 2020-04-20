@@ -1,12 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>阅读帮助文档</title>
+    <url>/2020/04/20/%E9%98%85%E8%AF%BB%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>调用函数时</strong>使用* ，**</p>
+</blockquote>
+<p>test(*args)中 * 的作用：其实就是把序列 args 中的每个元素，当作位置参数传进去。比如上面这个代码，如果 args 等于 (1,2,3) ，那么这个代码就等价于 test(1, 2, 3) 。</p>
+<p>test(<strong>kwargs)中</strong> 的作用：则是把字典 kwargs 变成关键字参数传递。比如上面这个代码，如果 kwargs 等于 {‘a’:1,’b’:2,’c’:3} ，那这个代码就等价于 test(a=1,b=2,c=3) 。</p>
+<blockquote>
+<p><strong>定义函数参数时</strong>使用* 、**</p>
+</blockquote>
+<p>def test(<em>args):<br>  …定义函数参数时 * 的含义又要有所不同，在这里 <em>args 表示把传进来的位置参数都装在元组 args 里面。比如说上面这个函数，调用 test(1, 2, 3) 的话， args 的值就是 (1, 2, 3) 。:<br>def test(</em></em>kwargs):<br>  …类似的， ** 就是针对关键字参数和字典的了。 调用 test(a=1,b=2,c=3) 的话， kwargs 的值就是 {‘a’:1,’b’:2,’c’:3} 了。</p>
+<ul>
+<li><ul>
+<li>必须放在所有位置参数的最后，而 ** 则必须放在所有关键字参数的最后</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>DocString</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>matplotlib之条形图</title>
+    <url>/2020/04/20/matplotlib%E4%B9%8B%E6%9D%A1%E5%BD%A2%E5%9B%BE/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">12</span> </span><br><span class="line">X = np.arange(<span class="number">12</span>)</span><br><span class="line">Y1 = (<span class="number">1</span>-X/float(n)) * np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n)  <span class="comment"># 均匀分布</span></span><br><span class="line">Y2 = (<span class="number">1</span>-X/float(n)) * np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.bar(X,+Y1,facecolor=<span class="string">'#9999ff'</span>)</span><br><span class="line">plt.bar(X,-Y2,facecolor=<span class="string">'#ff9999'</span>,edgecolor=<span class="string">'none'</span> )</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y1):</span><br><span class="line">    plt.text(x+<span class="number">0.04</span>,y+<span class="number">0.05</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y2):</span><br><span class="line">    plt.text(x+<span class="number">0.04</span>,-y<span class="number">-0.15</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</span><br><span class="line"><span class="comment"># plt.text(,,)第三个参数 指添加标签的数值来自哪里</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="number">12</span> </span><br><span class="line">X = np.arange(<span class="number">12</span>)</span><br><span class="line">Y1 = (<span class="number">1</span>-X/float(n)) * np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n)  <span class="comment"># 均匀分布</span></span><br><span class="line">Y2 = (<span class="number">1</span>-X/float(n)) * np.random.uniform(<span class="number">0.5</span>,<span class="number">1.0</span>,n)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.bar(X,+Y1,facecolor=<span class="string">'#9999ff'</span>)</span><br><span class="line">plt.bar(X,-Y2,facecolor=<span class="string">'#ff9999'</span>,edgecolor=<span class="string">'none'</span> )</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y1):</span><br><span class="line">    plt.text(x+<span class="number">0.04</span>,y+<span class="number">0.05</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X,Y2):</span><br><span class="line">    plt.text(x+<span class="number">0.04</span>,-y<span class="number">-0.15</span>,<span class="string">'%.2f'</span>%y,ha=<span class="string">'center'</span>,va=<span class="string">'bottom'</span>)</span><br><span class="line"><span class="comment"># plt.text(,,)第三个参数 指添加标签的数值来自哪里</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://ftp.bmp.ovh/imgs/2020/04/4b58e9f95ced1d9d.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># zip? </span></span><br><span class="line"><span class="comment"># 返回一个zip对象，其.__ next __（）方法返回一个元组，</span></span><br><span class="line"><span class="comment"># 其中第i个元素来自第i个可迭代参数。</span></span><br><span class="line"><span class="comment"># .__ next __（）方法继续，直到参数序列中最短的可迭代耗尽为止，然后引发StopIteration。</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>matplotlib</category>
+      </categories>
+      <tags>
+        <tag>条形图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Anaconda介绍</title>
+    <url>/2020/04/16/Anaconda%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><h2 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h2><pre><code>包管理，在conda基础上开发而来
+环境管理，功能类似 Virtualenv，解决了多版本Python并存、切换的问题</code></pre><h2 id="conda工具介绍"><a href="#conda工具介绍" class="headerlink" title="conda工具介绍"></a>conda工具介绍</h2><p>conda是Anaconda下用于包管理和环境管理的工具,功能上类似pip和vitualenv的组合。安装成功后conda会默认加入到环境变量中，因此可直接在命令行窗口运行命令conda<br>conda的环境管理与virtualenv是基本上是类似的操作。</p>
+<h2 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作"></a>相关操作</h2><p>```<br>    #查看帮助<br>    conda -h<br>    #基于python3.6版本创建一个名字为python36的环境<br>    conda create –name python36 python=3.6<br>    #激活环境<br>    activa python36<br>    # 再来检查python版本，显示是 3.6<br>    python -V<br>    # 退出当前环境<br>    deactive</p>
+]]></content>
+      <categories>
+        <category>挖坑</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Numpy——线性代数</title>
+    <url>/2020/04/01/Numpy%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>线性代数(如矩阵乘法、矩阵分解、行列式以及其他方阵数学等)是任何数组库的重要<br>组成部分。</p>
+<blockquote>
+<p>NumPy提供了一个用于矩阵乘法的dot函数(既是一个数组方法也是numpy命名空间中的一个函数) </p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="相关理论（部分）"><a href="#相关理论（部分）" class="headerlink" title="相关理论（部分）"></a>相关理论（部分）</h2><p>矩阵的QR分解：<br>A=QR这一过程将矩阵分解为Q和R两部分，其中Q是标准正交矩阵，R是一个上三角矩阵<br>矩阵的QRQR分解能够简化计算可以以线性系统的计算为例<br>     Ax=b =&gt; (QR)x=b<br>     Q(−1)QRx = Q(−1)b  =&gt; Rx = QTb<br>     QT是非常好计算的,R是一个上三角矩阵相当于Gauss-Jordan消元法的前向过程结束），从下往上推就可以很快计算出线性系统的结果。<br>因为涉及到求取标准正交矩阵QQ的过程，所以<strong>矩阵A可以进行QR分解的条件是A的各个列向量是线性无关的。</strong></p>
+]]></content>
+  </entry>
+  <entry>
     <title>numpy基础：数组和矢量计算</title>
     <url>/2020/03/27/numpy%E5%9F%BA%E7%A1%80%EF%BC%9A%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A2%E9%87%8F%E8%AE%A1%E7%AE%97/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Ipython一种交互式计算和开发环境</title>
+    <title>Ipython和Jupyter notebook</title>
     <url>/2020/03/27/Ipython%E4%B8%80%E7%A7%8D%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%92%8C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<p>IPython本身并没有提供任何的计算或数据分析功能，其设计的目的是在交互式计算和软件开发这两个方面最大化地提高生产力。<br>执行-探索 VS 编辑-编译-运行<br>操作系统shell和文件系统之间也有着非常紧密的集成。<br>注意，要使用正斜杠(/)，不然认不出来。此外，文件夹或文件名中间不能有空格，不然也无法正常继续操作。</p>
 <ol>
@@ -81,96 +163,20 @@
 <td>删除从行首到光标处的文本</td>
 </tr>
 </tbody></table>
-<h2 id="异常和跟踪"><a href="#异常和跟踪" class="headerlink" title="异常和跟踪"></a>异常和跟踪</h2><ol>
-<li>如果%run某段脚本或执行某条语句时发生了异常，IPython默认会输出整个调用栈跟踪(traceback)，其中还会附上调用栈各点附近的几行代码作为上下文参考。</li>
-<li>%xomde魔术命令进行控制上下文代码的数量</li>
-</ol>
-<h2 id="魔术命令"><a href="#魔术命令" class="headerlink" title="魔术命令"></a>魔术命令</h2><ol>
-<li><p>IPython有- -些特殊命令( 被称为魔术命令(Magic Command) )，它们有的为常见任务提供便利，有的则使你能够轻松控制IPython系统的行为。</p>
-</li>
-<li><p>魔术命令是以百分号%为前缀的命令。例如，你可以通过%timeit这个魔术命令检测任意Python语句( 如矩阵乘法)的执行时间(稍后将对此进行详细讲解) : </p>
-</li>
-<li><p>魔术命令默认是可以不带百分号使用的，只要没有定义与其同名的变量即可。这个技术叫做automagic，可以通过%automagic打开或关闭。</p>
-</li>
-<li><p>大都还有一些“命令行选项”，使用&lt;命令&gt;?，即可查看其选项</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>%quickref</td>
-<td>显示IPython的快速参考</td>
-</tr>
-<tr>
-<td>%magic</td>
-<td>显示所有的魔术命令的详细文档</td>
-</tr>
-<tr>
-<td>%debug</td>
-<td>从最新的异常跟踪的底部进入交互式调试器</td>
-</tr>
-<tr>
-<td>%hist</td>
-<td>打印命令的输入历史</td>
-</tr>
-<tr>
-<td>%pdb</td>
-<td>在异常发生后自动进入调试器</td>
-</tr>
-<tr>
-<td>%paste</td>
-<td>执行剪切板中的Python代码</td>
-</tr>
-<tr>
-<td>%cpaste</td>
-<td>打开一个特殊提示符以便手工粘贴待执行的Python代码</td>
-</tr>
-<tr>
-<td>%reset</td>
-<td>删除interactive命名空间中的全部变量/名称</td>
-</tr>
-<tr>
-<td>%page OBJECT</td>
-<td></td>
-</tr>
-<tr>
-<td>%run srcipt.py</td>
-<td>在IPython中执行- -个Python脚本文件</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-<h2 id="基于Qt的富GUI控制台"><a href="#基于Qt的富GUI控制台" class="headerlink" title="基于Qt的富GUI控制台"></a>基于Qt的富GUI控制台</h2><h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><h2 id="搜索并重用命令历史"><a href="#搜索并重用命令历史" class="headerlink" title="搜索并重用命令历史"></a>搜索并重用命令历史</h2><h2 id="输入和输出变量"><a href="#输入和输出变量" class="headerlink" title="输入和输出变量"></a>输入和输出变量</h2><h2 id="记录输入和输出"><a href="#记录输入和输出" class="headerlink" title="记录输入和输出"></a>记录输入和输出</h2><h1 id="操作系统交互"><a href="#操作系统交互" class="headerlink" title="操作系统交互"></a>操作系统交互</h1><h2 id="shell命令和别名"><a href="#shell命令和别名" class="headerlink" title="shell命令和别名"></a>shell命令和别名</h2><h2 id="目录书签系统"><a href="#目录书签系统" class="headerlink" title="目录书签系统"></a>目录书签系统</h2><h1 id="软件开发工具"><a href="#软件开发工具" class="headerlink" title="软件开发工具"></a>软件开发工具</h1><h2 id="交互式调试器"><a href="#交互式调试器" class="headerlink" title="交互式调试器"></a>交互式调试器</h2><h2 id="调试器的其他使用场景"><a href="#调试器的其他使用场景" class="headerlink" title="调试器的其他使用场景"></a>调试器的其他使用场景</h2><h2 id="测试代码的执行时间：-time和-timeit"><a href="#测试代码的执行时间：-time和-timeit" class="headerlink" title="测试代码的执行时间：%time和%timeit"></a>测试代码的执行时间：%time和%timeit</h2><h2 id="基本性能分析：-prun和-run-p"><a href="#基本性能分析：-prun和-run-p" class="headerlink" title="基本性能分析：%prun和%run -p"></a>基本性能分析：%prun和%run -p</h2><h2 id="逐行分析函数性能"><a href="#逐行分析函数性能" class="headerlink" title="逐行分析函数性能"></a>逐行分析函数性能</h2><h2 id="利用IPython提高代码开发效率的几点提示"><a href="#利用IPython提高代码开发效率的几点提示" class="headerlink" title="利用IPython提高代码开发效率的几点提示"></a>利用IPython提高代码开发效率的几点提示</h2><ol>
-<li><p>重新加载模块依赖项<br>当原有模块发生改变时，为避免Python“一次加载”模块系统造成的影响，可以使用内置reload()函数，重新加载，依赖变强时就需要在多个地方插入很多的reload函数；第二种方法是，IPython提供一种特殊的dreload()函数，则它会尝试重新加载模块及其所有的依赖项。</p>
-</li>
-<li><p>代码设计提示</p>
-<ul>
-<li>保留有意义的对象和数据（直接在该模块的全局命名空间中执行main中的代码（如果你希望该模块是可以引入的，可以将代码放在 if <strong>name</strong> == ‘<strong>main</strong>‘: 块中</li>
-<li>扁平结构要比嵌套结构好</li>
-<li>无惧大文件，更少的文件意味着需要重新加载的模块更少，编辑时需要在各<br>个文件之间的跳转次数也更少,</li>
-</ul>
-</li>
-</ol>
-]]></content>
+<h2 id="Jupyter-Notebook"><a href="#Jupyter-Notebook" class="headerlink" title="Jupyter Notebook"></a>Jupyter Notebook</h2><p>基于网页的用于交互计算的应用程序可被应用于全过程计算：开发、文档编写、运行代码和展示结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">组成部分</span><br><span class="line">	网页应用:</span><br><span class="line">	文档：.ipynb的JSON格式文件</span><br><span class="line"></span><br><span class="line"># 运行jupyter Notebook</span><br><span class="line">帮助：jupyter notebook  --help 或 jupyter notebook -h</span><br><span class="line">启动：Jupyter notebook # 默认端口</span><br><span class="line">		之后在Jupyter Notebook的所有操作，都请保持终端不要关闭，因为一旦关闭终端，就会断开与本地服务器的链接</span><br><span class="line">		浏览器地址栏中默认地将会显示：http:&#x2F;&#x2F;localhost:8888</span><br><span class="line">		同时启动了多个Jupyter Notebook，由于默认端口“8888”被占用，因此地址栏中的数字将从“8888”起，每多启动一个Jupyter Notebook数字就加1</span><br><span class="line">	  jupyter notebook --port &lt;port_number&gt; # 指定端口启动</span><br><span class="line">	  jupyter notebook --no-browser # 启动服务器但不打开浏览器</span><br><span class="line">&#96;&#96;&#96;	  </span><br><span class="line"></span><br><span class="line">## 异常和跟踪</span><br><span class="line"></span><br><span class="line">1. 如果%run某段脚本或执行某条语句时发生了异常，IPython默认会输出整个调用栈跟踪(traceback)，其中还会附上调用栈各点附近的几行代码作为上下文参考。</span><br><span class="line">2. %xomde魔术命令进行控制上下文代码的数量</span><br><span class="line"></span><br><span class="line">## 魔术命令</span><br><span class="line"></span><br><span class="line">1. IPython有一些特殊命令( 被称为魔术命令(Magic Command) )，它们有的为常见任务提供便利，有的则使你能够轻松控制IPython系统的行为。</span><br><span class="line"></span><br><span class="line">2. 魔术命令是以百分号%为前缀的命令。例如，你可以通过%timeit这个魔术命令检测任意Python语句( 如矩阵乘法)的执行时间(稍后将对此进行详细讲解) : </span><br><span class="line"></span><br><span class="line">3. 魔术命令默认是可以不带百分号使用的，只要没有定义与其同名的变量即可。这个技术叫做automagic，可以通过%automagic打开或关闭。</span><br><span class="line"></span><br><span class="line">4. 大都还有一些“命令行选项”，使用&lt;命令&gt;?，即可查看其选项</span><br><span class="line"></span><br><span class="line">   | 命令           | 说明                                             |</span><br><span class="line">   | -------------- | ------------------------------------------------ |</span><br><span class="line">   | %quickref      | 显示IPython的快速参考                            |</span><br><span class="line">   | %magic         | 显示所有的魔术命令的详细文档                     |</span><br><span class="line">   | %debug         | 从最新的异常跟踪的底部进入交互式调试器           |</span><br><span class="line">   | %hist          | 打印命令的输入历史                               |</span><br><span class="line">   | %pdb           | 在异常发生后自动进入调试器                       |</span><br><span class="line">   | %paste         | 执行剪切板中的Python代码                         |</span><br><span class="line">   | %cpaste        | 打开一个特殊提示符以便手工粘贴待执行的Python代码 |</span><br><span class="line">   | %reset         | 删除interactive命名空间中的全部变量&#x2F;名称         |</span><br><span class="line">   | %page OBJECT   |                                                  |</span><br><span class="line">   | %run srcipt.py | 在IPython中执行- -个Python脚本文件               |</span><br><span class="line">   |                |                                                  |</span><br><span class="line">   |                |                                                  |</span><br><span class="line">   |                |                                                  |</span><br><span class="line">   |                |                                                  |</span><br></pre></td></tr></table></figure>
+<h2 id="基于Qt的富GUI控制台"><a href="#基于Qt的富GUI控制台" class="headerlink" title="基于Qt的富GUI控制台"></a>基于Qt的富GUI控制台</h2><h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><h2 id="搜索并重用命令历史"><a href="#搜索并重用命令历史" class="headerlink" title="搜索并重用命令历史"></a>搜索并重用命令历史</h2><h2 id="输入和输出变量"><a href="#输入和输出变量" class="headerlink" title="输入和输出变量"></a>输入和输出变量</h2><h2 id="记录输入和输出"><a href="#记录输入和输出" class="headerlink" title="记录输入和输出"></a>记录输入和输出</h2><h1 id="操作系统交互"><a href="#操作系统交互" class="headerlink" title="操作系统交互"></a>操作系统交互</h1><h2 id="shell命令和别名"><a href="#shell命令和别名" class="headerlink" title="shell命令和别名"></a>shell命令和别名</h2><h2 id="目录书签系统"><a href="#目录书签系统" class="headerlink" title="目录书签系统"></a>目录书签系统</h2><h1 id="软件开发工具"><a href="#软件开发工具" class="headerlink" title="软件开发工具"></a>软件开发工具</h1><h2 id="交互式调试器"><a href="#交互式调试器" class="headerlink" title="交互式调试器"></a>交互式调试器</h2><h2 id="调试器的其他使用场景"><a href="#调试器的其他使用场景" class="headerlink" title="调试器的其他使用场景"></a>调试器的其他使用场景</h2><h2 id="测试代码的执行时间：-time和-timeit"><a href="#测试代码的执行时间：-time和-timeit" class="headerlink" title="测试代码的执行时间：%time和%timeit"></a>测试代码的执行时间：%time和%timeit</h2><h2 id="基本性能分析：-prun和-run-p"><a href="#基本性能分析：-prun和-run-p" class="headerlink" title="基本性能分析：%prun和%run -p"></a>基本性能分析：%prun和%run -p</h2><h2 id="逐行分析函数性能"><a href="#逐行分析函数性能" class="headerlink" title="逐行分析函数性能"></a>逐行分析函数性能</h2><pre><code>## 利用IPython提高代码开发效率的几点提示
+1. 重新加载模块依赖项
+   当原有模块发生改变时，为避免Python“一次加载”模块系统造成的影响，可以使用内置reload()函数，重新加载，依赖变强时就需要在多个地方插入很多的reload函数；第二种方法是，IPython提供一种特殊的dreload()函数，则它会尝试重新加载模块及其所有的依赖项。
+2. 代码设计提示
+
+ - 保留有意义的对象和数据（直接在该模块的全局命名空间中执行main中的代码（如果你希望该模块是可以引入的，可以将代码放在 if __name__ == &apos;__main__&apos;: 块中
+ - 扁平结构要比嵌套结构好
+ - 无惧大文件，更少的文件意味着需要重新加载的模块更少，编辑时需要在各
+   个文件之间的跳转次数也更少,</code></pre>]]></content>
+      <categories>
+        <category>IPython</category>
+      </categories>
   </entry>
   <entry>
     <title>Python字符串操作</title>
