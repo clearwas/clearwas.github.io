@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vixen</title>
+    <url>/2020/06/02/vixen/</url>
+    <content><![CDATA[<blockquote>
+<p>Vim vixen 插件快捷键</p>
+</blockquote>
+<h1 id="Basic-usage"><a href="#Basic-usage" class="headerlink" title="Basic usage"></a>Basic usage</h1><ul>
+<li>j, k: 向下/上滚动</li>
+<li>h, l: scroll horizontally</li>
+<li>Ctrl+U, Ctrl+D: 向上/向下滚动半屏</li>
+<li>Ctrl+B, Ctrl+F: 向上/向下滚动一屏</li>
+<li>0, $: 滚动到最左端/右端</li>
+<li>gg, G: 滚动到顶部/底部</li>
+</ul>
+<ul>
+<li>d: 删除当前标签页</li>
+<li>u:重开删除的标签页 reopen close tab</li>
+<li>K, J: 向前/后切换标签页</li>
+<li>r: 重新加载页面</li>
+<li>zp: 切换固定/取消固定当前标签</li>
+<li>zd: 复制当前标签</li>
+</ul>
+<p>-f：开始关注页面中的链接<br>-H：回顾历史<br>-L：回顾历史<br>-[[，]]：找到上一个或下一个链接并打开它<br>-gu：转到父目录<br>-gU：转到根目录</p>
+]]></content>
+      <tags>
+        <tag>效率</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>尝试</title>
     <url>/2020/05/29/%E5%B0%9D%E8%AF%95/</url>
     <content><![CDATA[]]></content>

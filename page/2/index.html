@@ -184,6 +184,164 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/03/27/Ipython%E4%B8%80%E7%A7%8D%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%92%8C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="clearwas">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风朗气清">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/27/Ipython%E4%B8%80%E7%A7%8D%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%92%8C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Ipython和Jupyter notebook</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-27 23:03:30" itemprop="dateCreated datePublished" datetime="2020-03-27T23:03:30+08:00">2020-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-16 18:39:14" itemprop="dateModified" datetime="2020-04-16T18:39:14+08:00">2020-04-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IPython/" itemprop="url" rel="index">
+                    <span itemprop="name">IPython</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>IPython本身并没有提供任何的计算或数据分析功能，其设计的目的是在交互式计算和软件开发这两个方面最大化地提高生产力。<br>执行-探索 VS 编辑-编译-运行<br>操作系统shell和文件系统之间也有着非常紧密的集成。<br>注意，要使用正斜杠(/)，不然认不出来。此外，文件夹或文件名中间不能有空格，不然也无法正常继续操作。</p>
+<ol>
+<li>IPython中输入了一一个变量，那么它将会显示出该对象的-一个字符串表示</li>
+<li>Tab键自动完成，输入表达式时，只要按下Tab键，当前命名空间中任何与已输入的字符串相匹配的变量(对象、函数等)就会被找出来:</li>
+</ol>
+<ul>
+<li>对象+句点 ：方法和属性的自动输入</li>
+<li>模块+句点</li>
+<li>IPython默认会隐藏那些以下划线开头的方法和属性，比如魔术方法(magic method)以及内部的“私有”方法和属性</li>
+<li>任何看上去像是文件路径的东西时(即使是在–个Python字符串中)，按下Tab键即可找出电脑文件系统中与之匹配的东西: book_ scripts/<Tab>，path = ‘ book_ scripts/<Tab></li>
+</ul>
+<h2 id="内省"><a href="#内省" class="headerlink" title="内省"></a>内省</h2><p>在变量的起前面或者后面加上一个问好？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def add_numbers(a,b):</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">ADD two numbers together </span><br><span class="line">Returns</span><br><span class="line">----</span><br><span class="line">the_sum: type of ar</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>利用？来显示这段docstring</li>
+<li>利用？？还将显示出该函数的源代码（如果可能的话）</li>
+</ol>
+<blockquote>
+<p>？ 还可以搜索IPython命名空间，类似于标准UNIX或Windows命令行中的那种<br>用法。一些字符再配以通配符(*)即可显示出所有与该通配符表达式相匹配的名称。</p>
+</blockquote>
+<h2 id="run命令"><a href="#run命令" class="headerlink" title="%run命令"></a>%run命令</h2><ol>
+<li>在IPython会话环境中，所有<strong>文件</strong>都可以通过%run命令来当做Python程序运行 （eg.%run ipthon_script_test.py)</li>
+<li>脚本是在一个空的命名空间中运行的( 没有任何import，也没有定义任何其他的变量)，所以其行为应该跟在标准命令行环境(通过python script.py启动的)中执行时一样。此后，该文件中所定义的全部变量(还有各种import、函数和全局变量)就可以在当前IPython shell中访问了(除非发生了异常) :</li>
+<li>如果希望脚本能够访问在交互式IPython命名空间中定义的变量，那就应该使用%run-i</li>
+<li>如果Python脚本需要用到命令行参数(通过sys.argv访问)，可以将参数放到文件路径的后面，就像在命令行上执行那样。</li>
+</ol>
+<h2 id="中断正在执行的代码"><a href="#中断正在执行的代码" class="headerlink" title="中断正在执行的代码"></a>中断正在执行的代码</h2><p>Ctrl - C ，引发一个KeyboardInterrupt<br>当Python代码已经调用了某个已编译的扩展模块，Python解释器重新获得控制权，此时要终止Python进程，只能通过操作系统的任务管理器强制终止Python进程</p>
+<h2 id="执行剪贴板中的代码"><a href="#执行剪贴板中的代码" class="headerlink" title="执行剪贴板中的代码"></a>执行剪贴板中的代码</h2><p>%paste 可以承载剪贴板中的一切文本，并在shell中以整体形式执行<br>%cpaste 要%paste差不多，多出了一个用于粘贴代码的特殊提示符 ：<br> 对于%cpaste块，在最终执行之前，你想粘贴多少代码就粘贴多少。如果想在执行那些粘贴进去的代码之前先检查一番，就可以考虑使用%cpaste。如果发现粘贴的代码有错，只需按下“Ctrl-C” 即可终止%cpaste提示符。</p>
+<h2 id="IPython跟编辑器和IDE之间的交互"><a href="#IPython跟编辑器和IDE之间的交互" class="headerlink" title="IPython跟编辑器和IDE之间的交互"></a>IPython跟编辑器和IDE之间的交互</h2><h2 id="键盘快捷键"><a href="#键盘快捷键" class="headerlink" title="键盘快捷键"></a>键盘快捷键</h2><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Ctrl - P</td>
+<td>后向搜索命令历史中以当前输入的文本开头的命令</td>
+</tr>
+<tr>
+<td align="left">Ctrl - N</td>
+<td>前向搜索命令历史中以当前输入的文本开头的命令</td>
+</tr>
+<tr>
+<td align="left">Ctrl - R</td>
+<td>按行读取的反向历史搜索</td>
+</tr>
+<tr>
+<td align="left">Ctrl - L</td>
+<td>清屏</td>
+</tr>
+<tr>
+<td align="left">Ctrl - C</td>
+<td>中止现在正在执行的代码</td>
+</tr>
+<tr>
+<td align="left">Ctrl - A</td>
+<td>将光标移动到行首</td>
+</tr>
+<tr>
+<td align="left">Ctrl- E</td>
+<td>将光标移动到行尾</td>
+</tr>
+<tr>
+<td align="left">Ctrl - K</td>
+<td>删除从光标开始至行尾的文本</td>
+</tr>
+<tr>
+<td align="left">Ctrl - U</td>
+<td>删除从行首到光标处的文本</td>
+</tr>
+</tbody></table>
+<h2 id="Jupyter-Notebook"><a href="#Jupyter-Notebook" class="headerlink" title="Jupyter Notebook"></a>Jupyter Notebook</h2><p>基于网页的用于交互计算的应用程序可被应用于全过程计算：开发、文档编写、运行代码和展示结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">组成部分</span><br><span class="line">	网页应用:</span><br><span class="line">	文档：.ipynb的JSON格式文件</span><br><span class="line"></span><br><span class="line"># 运行jupyter Notebook</span><br><span class="line">帮助：jupyter notebook  --help 或 jupyter notebook -h</span><br><span class="line">启动：Jupyter notebook # 默认端口</span><br><span class="line">		之后在Jupyter Notebook的所有操作，都请保持终端不要关闭，因为一旦关闭终端，就会断开与本地服务器的链接</span><br><span class="line">		浏览器地址栏中默认地将会显示：http:&#x2F;&#x2F;localhost:8888</span><br><span class="line">		同时启动了多个Jupyter Notebook，由于默认端口“8888”被占用，因此地址栏中的数字将从“8888”起，每多启动一个Jupyter Notebook数字就加1</span><br><span class="line">	  jupyter notebook --port &lt;port_number&gt; # 指定端口启动</span><br><span class="line">	  jupyter notebook --no-browser # 启动服务器但不打开浏览器</span><br><span class="line">&#96;&#96;&#96;	  </span><br><span class="line"></span><br><span class="line">## 异常和跟踪</span><br><span class="line"></span><br><span class="line">1. 如果%run某段脚本或执行某条语句时发生了异常，IPython默认会输出整个调用栈跟踪(traceback)，其中还会附上调用栈各点附近的几行代码作为上下文参考。</span><br><span class="line">2. %xomde魔术命令进行控制上下文代码的数量</span><br><span class="line"></span><br><span class="line">## 魔术命令</span><br><span class="line"></span><br><span class="line">1. IPython有一些特殊命令( 被称为魔术命令(Magic Command) )，它们有的为常见任务提供便利，有的则使你能够轻松控制IPython系统的行为。</span><br><span class="line"></span><br><span class="line">2. 魔术命令是以百分号%为前缀的命令。例如，你可以通过%timeit这个魔术命令检测任意Python语句( 如矩阵乘法)的执行时间(稍后将对此进行详细讲解) : </span><br><span class="line"></span><br><span class="line">3. 魔术命令默认是可以不带百分号使用的，只要没有定义与其同名的变量即可。这个技术叫做automagic，可以通过%automagic打开或关闭。</span><br><span class="line"></span><br><span class="line">4. 大都还有一些“命令行选项”，使用&lt;命令&gt;?，即可查看其选项</span><br><span class="line"></span><br><span class="line">   | 命令           | 说明                                             |</span><br><span class="line">   | -------------- | ------------------------------------------------ |</span><br><span class="line">   | %quickref      | 显示IPython的快速参考                            |</span><br><span class="line">   | %magic         | 显示所有的魔术命令的详细文档                     |</span><br><span class="line">   | %debug         | 从最新的异常跟踪的底部进入交互式调试器           |</span><br><span class="line">   | %hist          | 打印命令的输入历史                               |</span><br><span class="line">   | %pdb           | 在异常发生后自动进入调试器                       |</span><br><span class="line">   | %paste         | 执行剪切板中的Python代码                         |</span><br><span class="line">   | %cpaste        | 打开一个特殊提示符以便手工粘贴待执行的Python代码 |</span><br><span class="line">   | %reset         | 删除interactive命名空间中的全部变量&#x2F;名称         |</span><br><span class="line">   | %page OBJECT   |                                                  |</span><br><span class="line">   | %run srcipt.py | 在IPython中执行- -个Python脚本文件               |</span><br><span class="line">   |                |                                                  |</span><br><span class="line">   |                |                                                  |</span><br><span class="line">   |                |                                                  |</span><br><span class="line">   |                |                                                  |</span><br></pre></td></tr></table></figure>
+<h2 id="基于Qt的富GUI控制台"><a href="#基于Qt的富GUI控制台" class="headerlink" title="基于Qt的富GUI控制台"></a>基于Qt的富GUI控制台</h2><h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><h2 id="搜索并重用命令历史"><a href="#搜索并重用命令历史" class="headerlink" title="搜索并重用命令历史"></a>搜索并重用命令历史</h2><h2 id="输入和输出变量"><a href="#输入和输出变量" class="headerlink" title="输入和输出变量"></a>输入和输出变量</h2><h2 id="记录输入和输出"><a href="#记录输入和输出" class="headerlink" title="记录输入和输出"></a>记录输入和输出</h2><h1 id="操作系统交互"><a href="#操作系统交互" class="headerlink" title="操作系统交互"></a>操作系统交互</h1><h2 id="shell命令和别名"><a href="#shell命令和别名" class="headerlink" title="shell命令和别名"></a>shell命令和别名</h2><h2 id="目录书签系统"><a href="#目录书签系统" class="headerlink" title="目录书签系统"></a>目录书签系统</h2><h1 id="软件开发工具"><a href="#软件开发工具" class="headerlink" title="软件开发工具"></a>软件开发工具</h1><h2 id="交互式调试器"><a href="#交互式调试器" class="headerlink" title="交互式调试器"></a>交互式调试器</h2><h2 id="调试器的其他使用场景"><a href="#调试器的其他使用场景" class="headerlink" title="调试器的其他使用场景"></a>调试器的其他使用场景</h2><h2 id="测试代码的执行时间：-time和-timeit"><a href="#测试代码的执行时间：-time和-timeit" class="headerlink" title="测试代码的执行时间：%time和%timeit"></a>测试代码的执行时间：%time和%timeit</h2><h2 id="基本性能分析：-prun和-run-p"><a href="#基本性能分析：-prun和-run-p" class="headerlink" title="基本性能分析：%prun和%run -p"></a>基本性能分析：%prun和%run -p</h2><h2 id="逐行分析函数性能"><a href="#逐行分析函数性能" class="headerlink" title="逐行分析函数性能"></a>逐行分析函数性能</h2><pre><code>## 利用IPython提高代码开发效率的几点提示
+1. 重新加载模块依赖项
+   当原有模块发生改变时，为避免Python“一次加载”模块系统造成的影响，可以使用内置reload()函数，重新加载，依赖变强时就需要在多个地方插入很多的reload函数；第二种方法是，IPython提供一种特殊的dreload()函数，则它会尝试重新加载模块及其所有的依赖项。
+2. 代码设计提示
+
+ - 保留有意义的对象和数据（直接在该模块的全局命名空间中执行main中的代码（如果你希望该模块是可以引入的，可以将代码放在 if __name__ == &apos;__main__&apos;: 块中
+ - 扁平结构要比嵌套结构好
+ - 无惧大文件，更少的文件意味着需要重新加载的模块更少，编辑时需要在各
+   个文件之间的跳转次数也更少,</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/03/19/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -855,157 +1013,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://forleaves.xyz/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="clearwas">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="风朗气清">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/05/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-title-link" itemprop="url">《计算机是怎么跑起来的》（三）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-05 17:24:33" itemprop="dateCreated datePublished" datetime="2020-02-05T17:24:33+08:00">2020-02-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-06 17:03:15" itemprop="dateModified" datetime="2020-02-06T17:03:15+08:00">2020-02-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><p>1 什么是机器语言<br>    也称Native Code由二进制数字构成的程序，CPU可以直接对其解析、执行。</p>
-<p>2 通常把标识内存或I/O中存储单元的数字称作什么？<br>     标识内存或I/O中存储单元的数字叫做”地址”。内存中有多个数据存储单元。计算机用从0开始的编号标识每个存储单元，这些编号就是地址（Address）。<br>     I/O中的寄存器也可以用地址来标识。哪个寄存器对应哪个地址，取决于CPU和I/O之间的布线方式。</p>
-<p>3 CPU 中的标志寄存器（Flags Register）有什么作用？<br>     用于在运算指令执行后，存储运算结果的某些状态。一旦执行了算术运算、逻辑运算、比较运算等指令后，标志寄存器并不会存放运算结果的值，而是会把运算后的某些状态存储起来，例如运算结果是否为0、是否产生了负数、是否有溢出（Overflow）等。</p>
-<h2 id="从程序员角度看硬件"><a href="#从程序员角度看硬件" class="headerlink" title="从程序员角度看硬件"></a>从程序员角度看硬件</h2><p>  [CPU信息]</p>
-<ul>
-<li>CPU种类</li>
-<li>时钟信号的频率<br> [内存信息]<ul>
-<li>地址空间</li>
-<li>每个地址中可以存储多少比特的信息<br>[I/O信息]</li>
-<li>I/O的种类</li>
-<li>地址空间</li>
-<li>连接着何种周边设备</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://ftp.bmp.ovh/imgs/2020/02/417f7ab13b541327.png" alt=""></p>
-<ol>
-<li>用哪种机器语言取决于CPU（也称作处理器）的种类,即便是相同的机器语言，如“01010011“，只要CPU的种类不同，对它的解释也就不同”</li>
-<li>时钟信号的频率：就是由时钟发生器发送给CPU的电信号的频率。时钟信号是在0和1两个数之 间反复变换的电信号，就像滴答滴答左右摆动的钟摆一样。通常把发出一次滴答的时间称作一个时钟周期。在机器语言当中，指令执行时所需要的时钟周期数取决于指令的类型</li>
-<li>I/O的地址空间，指I/O寄存器的地址范围在。Z80 PIO上，地址空间为0～3，每一个地址对应一个寄存器.</li>
-<li>在内存中，每个地址的功能都一样，既可用于存储指令又可用于存储数据。而I/O不同,I/O的地址编号不同（寄存器的类型不同），功能也不同。<br>在汇编语言中，使用十进制和十六进制数记录数据。<br>在汇编语言中，读写内存的指令不同于读写I/O的指令。</li>
-</ol>
-<h2 id="机器语言和汇编语言"><a href="#机器语言和汇编语言" class="headerlink" title="机器语言和汇编语言"></a>机器语言和汇编语言</h2><h3 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言:"></a>汇编语言:</h3><pre><code>在机器语言程序中，虽然到处都是0和1的组合，但是每个组合都是有特定含义的指令或数据，人很难判断各个组合都表示什么。有人发明出一种编程方法，根据表示指令功能的英语单词起一个相似的昵称，并将这个昵称赋予0和1的组合，这种类似英语单词的昵称叫做**“助记符”**，使用助记符的编程语言叫作“汇编语言”。</code></pre><h3 id="汇编语言的语法："><a href="#汇编语言的语法：" class="headerlink" title="汇编语言的语法："></a>汇编语言的语法：</h3><p>汇编语言的语法十分简单，以至于语法只有一个，即把“标签” “操作码（指令）”和“操作数（指令的对象）”并排写在一行上。</p>
-<ol>
-<li>标签的作用是为该行代码对应的内存地址起一个名字。</li>
-<li>操作码就是“做什么”的指令。<ul>
-<li>汇编语言中提供了多少种助记符，CPU就有多少种功能。Z80 CPU 的指令全部加起来有 70 条左右。</li>
-<li>按功能这些指令可以分成运算、与内存的输入输出和与 I/O 的输入输出三类</li>
-</ul>
-</li>
-<li>操作数表示的是指令执行的对象，CPU的寄存器、内存地址、I/O地址或者直接给出的数字都可以作为操作数。操作数必须是已存储在CPU寄存器中的数字。</li>
-<li>构成机器语言的是二进制数，而在汇编语言中，则使用十进制数和十六进制数记录数据。 </li>
-</ol>
-<h2 id="Z80的寄存器结构"><a href="#Z80的寄存器结构" class="headerlink" title="Z80的寄存器结构"></a>Z80的寄存器结构</h2><p>​        CPU的寄存器不仅能存储数据，还具备对数据进行运算的能力。CPU带有什么样的寄存器取决于CPU的种类。寄存器的用途取决于它的类型。</p>
-<p>有的指令只能将特定的寄存器指定为操作数。</p>
-<p><img src="https://ftp.bmp.ovh/imgs/2020/02/a40c4fb22eaaa3fd.png" alt=""></p>
-<ul>
-<li>A寄存器也叫作“累加器”，是运算的核心。所以连接到它上面的导线也一定会比其他寄存器的多。</li>
-<li>F寄存器也叫作“标志寄存器”，用于存储运算结果的状态，比如是否发生了进位，数字大小的比较结果等。</li>
-<li>PC寄存器也叫作“程序指针”，存储着指向CPU接下来要执行的指令的地址。PC寄存器的值会随着滴答滴答的时钟信号自动更新，可以说程序就是依靠不断变化的PC寄存器的值运行起来的。</li>
-<li>SP寄存器也叫作“栈顶指针”，用于在内存中创建出一块称为“栈”的临<br>时数据存储区域。</li>
-</ul>
-<blockquote>
-<p>代码1</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LOOP: IN  A, (0)</span><br><span class="line">　　　 OUT (1), A</span><br><span class="line">　　　 JP  LOOP</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>IN A, (0)”的作用是把数据由端口A数据寄存器（连接在指拨开关上，对应的 I/O 地址为 0 号）输入到 CPU 的寄存器 A</li>
-<li>“OUT (1), A”的作用是把寄存器A的值输出到端口B数据寄存器上（连接在LED上，对应的I/O地址为1号）</li>
-<li>“JP LOOP”的作用是使程序的流程跳转到LOOP（笔者随意起的一个标签名）标签所标识的指令上。</li>
-</ul>
-<hr>
-<p>注意：JP 是 Jump 的缩写。“IN A, (0)”所在行的开头有一个标签“LOOP:”，代表着这一行的内存地址。正如刚才所讲的那样，在用汇编语言编程时，如果老想着“这一行对应的内存地址是什么来着？”就会很不方便。<strong>所以就要用“LOOP:”这样的标签代替内存地址</strong>。<br>     当把标签作为JP指令的操作数时，标签名的结尾不需要冒号“:”，<br>     但是在设定标签时，标签名的结尾则需要加上一个冒号，<br>     这一点请诸位注意！！！！</p>
-<h2 id="追踪程序的运营过程"><a href="#追踪程序的运营过程" class="headerlink" title="追踪程序的运营过程"></a>追踪程序的运营过程</h2><p><strong><em>用汇编语言编写的程序是不能直接运行的，必须要先转换成机器语言</em></strong></p>
-<ul>
-<li>汇编语言中的1条指令能转换成多少条机器语言取决于指令的种类以及操作数的个数。</li>
-<li>一旦重置了 CPU，00000000 就会被自动存储到 PC 寄存器中，这意味着接下来 CPU 将要从 00000000 号地址读出程序。</li>
-</ul>
-<ol>
-<li>首先 CPU 会从00000000 号地址读出指令 00111110，判断出这是一条由 2 个字节构成的指令</li>
-<li>是接下来会从下一个地址（即00000001，1号地址）读出数据11001111，</li>
-<li>把这<strong>两个数据</strong>汇集到一起解释、执行</li>
-<li>执行的指令是把数值207写入到寄存器A，用汇编语言表示的话就是“LD A, 207”</li>
-<li>这时，由于刚刚从内存读出了一条2字节的指令（占用2个内存地址），所以PC寄存器的值要增加2</li>
-</ol>
-<hr>
-<p>通过反复进行“读取指令”“解释、执行指令”“更新PC寄存器的值”这3个操作，程序就能运行起来了。</p>
-<h2 id="手工汇编"><a href="#手工汇编" class="headerlink" title="手工汇编"></a>手工汇编</h2><p><em>在CPU的资料中，明确写有所有可以使用的助记符，以及助记符转换成机器语言后的数值。只要查看这些资料，就可以把用汇编语言编写的程序手工转换成机器语言的程序，这样的工作称为“手工汇编”。</em></p>
-<p><img src="https://ftp.bmp.ovh/imgs/2020/02/dff4f2c7df2ab1e9.png" alt=""></p>
-<ol>
-<li>在机器语言当中，指令执行时所需要的时钟周期数取决于指令的类型</li>
-<li>在 Z80 CPU中用于设定内存地址的引脚却有16个，所以在机器语言中也要用 16 比特的二进制数设定内存地址。</li>
-<li>机器语言中每条语句的字节数是多少，内存地址就相应地增加多少</li>
-</ol>
-<p>小端序：在将一个2字节的数据存储到内存时，存储顺序是低8位在前、高8位在后（也就是逆序存储）<br>大端序：将数据由高位到低位 顺序地存储到内存的存储顺序<br>** CPU种类的不同，有的CPU使用大端序，有的CPU使用小端序</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1076,7 +1083,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1089,7 +1096,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1138,7 +1145,7 @@
   </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.7k字</span>
+  <span class="post-count">博客全站共11.8k字</span>
 </div>
         
 
