@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>pandas</title>
+    <url>/2020/06/06/pandas%E4%B9%8B%E5%88%97%E8%A1%A8%E8%BD%AC%E5%8C%96%E4%B8%BADataFrame/</url>
+    <content><![CDATA[<p><code>list1 = [&#39;不&#39;, &#39;还&#39;, &#39;天&#39;]</code><br><code>pd.DataFrame(list1)</code><br><img src="https://cdn.jsdelivr.net/gh/clearwas/images/20200606160017.png" alt=""><br><code>list2 = [1,2,3]</code>data = pd.DataFrame([list1,list2])<code></code>print(data)<code>![](https://cdn.jsdelivr.net/gh/clearwas/images/20200606160212.png)</code>data_all = pd.DataFrame.from_dict({‘评论’:list1,”评分”:list2},orient=’columns’)<br><img src="https://cdn.jsdelivr.net/gh/clearwas/images/20200606160552.png" alt=""><br>```</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>gensim学习</title>
+    <url>/2020/06/03/gensim%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<blockquote>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Gensim是一款开源的第三方Python工具包，用于从原始的非结构化的文本中，无监督地学习到文本隐层的主题向量表达。<br>支持包括TF-IDF，LSA，LDA，和word2vec在内的多种主题模型算法，<br>支持流式训练，并提供了诸如相似度计算，信息检索等一些常用任务的API接口</p>
+</blockquote>
+<blockquote>
+<p>基本概念</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>语料（Corpus）：一组原始文本的集合，用于无监督地训练文本主题的隐层结构。语料中不需要人工标注的附加信息。在Gensim中，Corpus通常是一个可迭代的对象（比如列表）。每一次迭代返回一个可用于表达文本对象的稀疏向量。向量（Vector）：由一组文本特征构成的列表。是一段文本在Gensim中的内部表达</td>
+<td></td>
+</tr>
+<tr>
+<td>稀疏向量（SparseVector）：通常，我们可以略去向量中多余的0元素。此时，向量中的每一个元素是一个(key, value)的元组</td>
+<td></td>
+</tr>
+<tr>
+<td>模型（Model）：是一个抽象的术语。定义了两个向量空间的变换（即从文本的一种向量表达变换为另一种向量表达</td>
+<td></td>
+</tr>
+</tbody></table>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>混账</title>
+    <url>/2020/06/02/%E6%B7%B7%E8%B4%A6/</url>
+    <content><![CDATA[<blockquote>
+<p>信息纷乱，偶有所得<br>不成体系，君闻莫笑<br>星星之火，可以燎原</p>
+</blockquote>
+<ol>
+<li><a href="http://kpyj.crsp.org.cn/ch/index.aspx【科普研究】杂志通俗易懂，适用于拓宽知识面，是不错得阅读素材" target="_blank" rel="noopener">http://kpyj.crsp.org.cn/ch/index.aspx【科普研究】杂志通俗易懂，适用于拓宽知识面，是不错得阅读素材</a><br><img src="https://cdn.jsdelivr.net/gh/clearwas/images/20200602225639.png" alt=""></li>
+<li>对大自然的好奇和观察，是科学的起源<br>麦克卢汉的“媒介是人体的延伸”<br>叶文洁认为，“星星都是一个个的点，宇宙中各个文明社会的复杂结构，其中的混沌和随机因素，都被这样巨大的距离滤去了，那些文明在我们看来就是一个个拥有参数的点”。<br>空间距离过大引发的猜疑与误会<br>前者体现了东方式的向死而生的达观，后者体现了忏悔与救赎的关怀</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>vixen</title>
     <url>/2020/06/02/vixen/</url>
     <content><![CDATA[<blockquote>
